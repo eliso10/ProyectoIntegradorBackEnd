@@ -1,10 +1,29 @@
 package com.plantasreyes.database.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="Products")
 public class Products {
 	//Attributes
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_products", unique = true, nullable = false)
 	private Long id_products;
+	
+	@Column(nullable = false)
 	private String product_name;
+	
+	@Column(nullable = false)
 	private String url;
+	
+	@Column(nullable = false)
 	private String description;
 	
 	
@@ -14,14 +33,12 @@ public class Products {
 		
 	}
 	
-	//Automaticos
-	public Products(Long id_products, String product_name, String url, String description) {
-		super();
-		this.id_products = id_products;
-		this.product_name = product_name;
-		this.url = url;
-		this.description = description;
-	}
+	//Automaticos eliminamos
+	
+	//Definir relaciones
+	@ManyToOne
+	@JoinColumn(name = "Categories_id_categories", nullable = false)
+	private Categories categories;
 	
 	//getters y setters
 	public Long getId_products() {
