@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,12 +39,12 @@ public class PaymentController {
 		}
 		
 		@PostMapping
-		public Payment createPayment(Payment payment) {
+		public Payment createPayment(@RequestBody Payment payment) {
 			return PaymentService.createPayment(payment);
 		}
 		
 		@PutMapping
-		public Payment updatePayment(Payment payment) {
+		public Payment updatePayment(@RequestBody Payment payment) {
 			return PaymentService.updatePayment(payment);
 		}
 		
