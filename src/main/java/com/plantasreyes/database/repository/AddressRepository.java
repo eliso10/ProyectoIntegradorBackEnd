@@ -1,4 +1,4 @@
-package com.plantasreyes.database.repositories;
+package com.plantasreyes.database.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

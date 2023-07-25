@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.plantasreyes.database.entity.Address;
-import com.plantasreyes.database.services.AddressService;
+import com.plantasreyes.database.service.AddressService;
 
 @RequestMapping(path = "/database/address")
 @RestController

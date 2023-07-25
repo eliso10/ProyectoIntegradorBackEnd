@@ -1,4 +1,4 @@
-package com.plantasreyes.database.services;
+package com.plantasreyes.database.service;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plantasreyes.database.entity.Address;
-import com.plantasreyes.database.repositories.AddressRepository;
+import com.plantasreyes.database.repository.AddressRepository;
 
 @Service
 public class AddressService {
