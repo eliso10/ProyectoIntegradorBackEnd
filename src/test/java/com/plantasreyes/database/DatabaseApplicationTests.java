@@ -1,4 +1,4 @@
-package com.plantasresyes.database;
+package com.plantasreyes.database;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

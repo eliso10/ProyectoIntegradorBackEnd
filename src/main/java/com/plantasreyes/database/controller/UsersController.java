@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plantasreyes.database.entity.*;
+import com.plantasreyes.database.entity.Users;
 import com.plantasreyes.database.service.UsersService;
 @RequestMapping(path="/database/users")
 @RestController

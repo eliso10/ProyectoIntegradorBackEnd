@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.plantasreyes.database.entity.Users;
 
 @Repository
-public interface UsersRepository extends JpaRepository<Users , Long>{
+public interface UsersRepository extends JpaRepository<Users, Long>{
 
 }

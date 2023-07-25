@@ -6,7 +6,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Products_has_Users")
-
 public class Products_has_Users {
 	
 	@Column(nullable=false)
