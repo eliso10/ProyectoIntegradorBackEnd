@@ -1,35 +1,56 @@
 package com.plantasreyes.database.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "User")
 public class Users {
-	private long id_Users;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_Users", unique = true, nullable = false)
+	private Long id_Users;
+	@Column(nullable=false)
 	private String name;
+	@Column(nullable=false)
 	private String last_name;
+	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false)
 	private String password;
+	@Column(nullable=false)
 	private String username;
+	@Column(nullable=false)
 	private String telephone;
-	
+	 
+	// constructor vacio para jpa
 	public Users() {
 }
+///definimos relaciones
 
-	public Users(long id_Users, String name, String last_name, String email, String password, String username, String telephone) {
-		super();
-		this.id_Users=id_Users;
-		this.name = name;
-		this.last_name = last_name;
-		this.email = email;
-		this.password = password;
-		this.username = username;
-		this.telephone = telephone;
-	}
-
-
-
-	public long getId_Users() {
+	@ManyToMany
+	@JoinTable(
+	name="Products_has_Users",
+	joinColumns = @JoinColumn(name="users_id"),
+	inverseJoinColumns = @JoinColumn(name="Users_users_id")
+	)
+	
+	
+	
+	//getters y setters
+	public Long getId_Users() {
 		return id_Users;
 	}
 
-	public void setId_Users(long id_Users) {
+	public void setId_Users(Long id_Users) {
 		this.id_Users = id_Users;
 	}
 
