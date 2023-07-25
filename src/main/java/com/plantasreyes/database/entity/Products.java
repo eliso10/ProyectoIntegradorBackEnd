@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -37,8 +39,8 @@ public class Products {
 	
 	//Definir relaciones
 	@ManyToOne
-	@JoinColumn(name = "Categories_id_categories", nullable = false)
-	private Categories categories;
+	@JoinColumn(name = "Category_id_category", nullable = false)
+	private Category category;
 	
 	//getters y setters
 	public Long getId_products() {

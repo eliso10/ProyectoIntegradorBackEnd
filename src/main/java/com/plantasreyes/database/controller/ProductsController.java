@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.plantasreyes.database.entity.Products;
@@ -38,13 +39,13 @@ public class ProductsController {
 	
 	//Post
 	@PostMapping
-	public Products createProducts (Products products) {
+	public Products createProducts (@RequestBody Products products) {
 		return productsService.createProducts(products);
 	}
 	
 	//Put
 	@PutMapping
-	public Products updateProducts(Products products) {
+	public Products updateProducts(@RequestBody Products products) {
 		return productsService.updateProducts(products);
 	}
 	
