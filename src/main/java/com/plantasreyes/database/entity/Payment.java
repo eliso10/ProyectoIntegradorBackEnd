@@ -1,8 +1,22 @@
 package com.plantasreyes.database.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Payment")
 public class Payment {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_payment", unique = true, nullable = false)
 	private Long id_payment;
+	
+	@Column(nullable = false)
 	private String method;
 	
 	//Construcctor Vacio para JPA
