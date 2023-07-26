@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
@@ -33,17 +34,39 @@ public class Users {
 	// constructor vacio para jpa
 	public Users() {
 }
-///definimos relaciones
+	//definimos relaciones
 
 	@ManyToMany
 	@JoinTable(
-	name="Products_has_Users",
-	joinColumns = @JoinColumn(name = "users_id"),
-	inverseJoinColumns = @JoinColumn(name = "Users_users_id")
+			name="Products_has_Users",
+			joinColumns = @JoinColumn(name = "Users_id_Users"),
+			inverseJoinColumns = @JoinColumn(name = "Products_id_Products")
 	)
 	
+	@OneToOne
+	@JoinColumn(name = "Address_id_address", nullable = false)
+	private Address address;
 	
+	@OneToOne
+	@JoinColumn(name = "Payment_id_payment", nullable = false)
+	private Payment payment;
 	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
 	//getters y setters
 	public Long getId_Users() {
 		return id_Users;
