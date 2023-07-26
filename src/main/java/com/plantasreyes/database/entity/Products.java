@@ -16,8 +16,8 @@ public class Products {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_products", unique = true, nullable = false)
-	private Long id_products;
+	@Column(name = "id_Products", unique = true, nullable = false)
+	private Long id_Products;
 	
 	@Column(nullable = false)
 	private String product_name;
@@ -52,11 +52,11 @@ public class Products {
 
 	//getters y setters
 	public Long getId_products() {
-		return id_products;
+		return id_Products;
 	}
 
 	public void setId_products(Long id_products) {
-		this.id_products = id_products;
+		this.id_Products = id_products;
 	}
 
 	public String getProduct_name() {
@@ -87,7 +87,7 @@ public class Products {
 	//ToString
 	@Override
 	public String toString() {
-		return "Products [id_products=" + id_products + ", product_name=" + product_name + ", url=" + url
+		return "Products [id_products=" + id_Products + ", product_name=" + product_name + ", url=" + url
 				+ ", description=" + description + "]";
 	}
 	

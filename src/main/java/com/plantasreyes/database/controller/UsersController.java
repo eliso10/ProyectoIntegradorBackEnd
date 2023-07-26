@@ -1,4 +1,5 @@
 package com.plantasreyes.database.controller;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,31 @@ public class UsersController{
 	public Users createUsers (@RequestBody Users users) {
 		return usersService.createUsers(users);
 	}
+	/*
+	@PostMapping
+
+	public Users createUser(@RequestBody Users user) {
+
+		// get genre from the database and make a match
+
 	
+		Payment persistentGenre = paymentService.getGenreById(user.getPayment().getPayment_id());
+		user.setGenre(persistentGenre);
+
+		// CategoryProducts is the same as genre, but for a list
+		List<CategoryProduct> persistentCategoryProducts = new ArrayList<>();
+		// Add to the list each author found by their ID
+		for(CategoryProduct author: user.getCategoryProducts()) {
+			CategoryProduct persistentCategoryProduct = authorService.getCategoryProductId(author.getCategoryProduct_id());
+			persistentCategoryProducts.add(persistentCategoryProduct);
+
+		}
+
+		user.setCategoryProducts(persistentCategoryProducts);
+		return userService.createUser(user);
+
+	}
+	*/
 	//Put
 	@PutMapping
 	public Users updateUsers(@RequestBody Users users) {
