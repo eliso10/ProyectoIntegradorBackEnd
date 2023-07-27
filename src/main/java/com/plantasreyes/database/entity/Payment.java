@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Payment")
+@Table(name = "payment")
 public class Payment {
 	
 	@Id
@@ -35,7 +35,7 @@ public class Payment {
 		this.method = method;
 	}
 
-	public Long getId_payment() {
+	public long getId_payment() {
 		return id_payment;
 	}
 

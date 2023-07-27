@@ -59,10 +59,10 @@ public class UsersController{
 	
 		Payment persistentPayment = paymentService.getPaymentId(user.getPayment().getId_payment());
 		user.setPayment(persistentPayment);
-		
+	/*	
 		Address persistentAddress = addressService.getAddressById(user.getAddress().getId());
 		user.setAddress(persistentAddress);
-		/*
+		
 		// CategoryProducts is the same as genre, but for a list
 		List<CategoryProduct> persistentCategoryProducts = new ArrayList<>();
 		// Add to the list each author found by their ID
