@@ -12,23 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plantasreyes.database.entity.CategoryProduct;
+
 import com.plantasreyes.database.entity.Products;
-import com.plantasreyes.database.repository.CategoryProductRepository;
 import com.plantasreyes.database.service.ProductsService;
 
 @RequestMapping(path = "/database/products")
 @RestController
 public class ProductsController {
 	
-	@Autowired
-	private final ProductsService productsService;
-	private CategoryProductRepository categoryProductRepository;
 	
-	public ProductsController(ProductsService productsService, CategoryProductRepository categoryProductRepository) {
+	private final ProductsService productsService;
+	
+	
+	
+	@Autowired
+	public ProductsController(ProductsService productsService) {
 		this.productsService = productsService;
-		 this.categoryProductRepository = categoryProductRepository;
+		
 	}
+	
+	// Método para crear un nuevo producto con una categoría ya existente
+    @PostMapping("/crear-con-categoria-existente")
+    public Products creatProduct(@RequestBody Products producto) {
+        return productsService.creatProduct(producto);
+    }
+	
+	// Método para crear un nuevo producto y asignarle una categoría
+    @PostMapping("/post/{categoriaId}")
+    public Products crearProductoConCategoria(@RequestBody Products producto, @PathVariable Long categoriaId) {
+        return productsService.postProduct(producto, categoriaId);
+    }
 	
 	//GetAll
 	@GetMapping
@@ -41,7 +54,7 @@ public class ProductsController {
 	public Products getProductsById(@PathVariable Long id) {
 		return productsService.getProductsById(id);
 	}
-	
+	/*
 	//Post
 	@PostMapping
 	public Products createProducts (@RequestBody Products products) {
@@ -49,7 +62,7 @@ public class ProductsController {
 		products.setCategoryProduct(persistentCategoryProduct);
 		return productsService.createProducts(products);
 	}
-	
+	*/
 	//Put
 	@PutMapping
 	public Products updateProducts(@RequestBody Products products) {

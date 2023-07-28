@@ -8,10 +8,13 @@ import com.plantasreyes.database.repository.CategoryProductRepository;
 
 @Service
 public class CategoryProductService {
+	
+	private final CategoryProductRepository categoryProductRepository;
+	
 	@Autowired
-	private CategoryProductRepository categoryProductRepository;
-	
-	
+	public CategoryProductService(CategoryProductRepository categoryProductRepository) {
+        this.categoryProductRepository = categoryProductRepository;
+    }
 	//Get
 	public List<CategoryProduct> getAllCategoryProduct(){
 		return categoryProductRepository.findAll();

@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plantasreyes.database.entity.Address;
-import com.plantasreyes.database.entity.Payment;
+
 import com.plantasreyes.database.entity.Users;
-import com.plantasreyes.database.service.AddressService;
-import com.plantasreyes.database.service.PaymentService;
+
 import com.plantasreyes.database.service.UsersService;
 @RequestMapping(path="/database/users")
 @RestController
@@ -25,13 +23,11 @@ public class UsersController{
 
 	@Autowired
 	private UsersService usersService;
-	private PaymentService paymentService;
-	private AddressService addressService;
+
 	
-	public UsersController(UsersService usersService, PaymentService paymentService, AddressService addressService) {
+	public UsersController(UsersService usersService) {
 		this.usersService = usersService;
-		this.paymentService = paymentService;
-		this.addressService = addressService;
+		
 	}
 	
 	//GetAll
@@ -56,13 +52,7 @@ public class UsersController{
 	public Users createUser(@RequestBody Users user) {
 
 		// get genre from the database and make a match
-	
-		Payment persistentPayment = paymentService.getPaymentId(user.getPayment().getId_payment());
-		user.setPayment(persistentPayment);
-	/*	
-		Address persistentAddress = addressService.getAddressById(user.getAddress().getId());
-		user.setAddress(persistentAddress);
-		
+	/*		
 		// CategoryProducts is the same as genre, but for a list
 		List<CategoryProduct> persistentCategoryProducts = new ArrayList<>();
 		// Add to the list each author found by their ID

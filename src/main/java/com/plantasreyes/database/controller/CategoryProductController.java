@@ -16,9 +16,10 @@ import com.plantasreyes.database.service.CategoryProductService;
 @RestController //ApiRESTfull
 public class CategoryProductController{
 
-	@Autowired
+	
 	private final CategoryProductService categoryProductService;
 	
+	@Autowired
 	public CategoryProductController(CategoryProductService categoryProductService) {
 		this.categoryProductService = categoryProductService;
 	}

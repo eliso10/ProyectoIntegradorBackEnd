@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
@@ -43,30 +42,6 @@ public class Users {
 			inverseJoinColumns = @JoinColumn(name = "products_id_products")
 	)
 	
-	@OneToOne
-	@JoinColumn(name = "address_id_address", nullable = false)
-	private Address address;
-	
-	@OneToOne
-	@JoinColumn(name = "payment_id_payment", nullable = false)
-	private Payment payment;
-	
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public Payment getPayment() {
-		return payment;
-	}
-
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
-
 	//getters y setters
 	public Long getId_Users() {
 		return id_Users;

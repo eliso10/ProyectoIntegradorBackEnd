@@ -1,5 +1,4 @@
 package com.plantasreyes.database.entity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name ="products")
@@ -20,7 +19,7 @@ public class Products {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_products", unique = true, nullable = false)
-	private Long id_Products;
+	private Long id_products;
 	
 	@Column(nullable = false)
 	private String product_name;
@@ -51,23 +50,21 @@ public class Products {
 	)
 	
 	
-	
-	
-	public CategoryProduct getCategoryProduct() {
-		return categoryProduct;
-	}
-
 	public void setCategoryProduct(CategoryProduct categoryProduct) {
 		this.categoryProduct = categoryProduct;
+	}
+	
+	public CategoryProduct getCategoryProduct() {
+		return this.categoryProduct;
 	}
 
 	//getters y setters
 	public Long getId_products() {
-		return id_Products;
+		return id_products;
 	}
 
 	public void setId_products(Long id_products) {
-		this.id_Products = id_products;
+		this.id_products = id_products;
 	}
 
 	public String getProduct_name() {
@@ -98,7 +95,7 @@ public class Products {
 	//ToString
 	@Override
 	public String toString() {
-		return "Products [id_products=" + id_Products + ", product_name=" + product_name + ", url=" + url
+		return "Products [id_products=" + id_products + ", product_name=" + product_name + ", url=" + url
 				+ ", description=" + description + "]";
 	}
 	

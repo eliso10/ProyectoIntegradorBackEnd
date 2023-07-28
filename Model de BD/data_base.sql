@@ -15,26 +15,6 @@ CREATE SCHEMA IF NOT EXISTS `database` DEFAULT CHARACTER SET utf8 ;
 USE `database` ;
 
 -- -----------------------------------------------------
--- Table `database`.`address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database`.`address` (
-  `id_address` INT NOT NULL AUTO_INCREMENT,
-  `address` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`id_address`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `database`.`payment`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database`.`payment` (
-  `id_payment` INT NOT NULL AUTO_INCREMENT,
-  `method` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_payment`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `database`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `database`.`users` (
@@ -47,19 +27,7 @@ CREATE TABLE IF NOT EXISTS `database`.`users` (
   `telephone` VARCHAR(45) NOT NULL,
   `address_id_address` INT NOT NULL,
   `payment_id_payment` INT NOT NULL,
-  PRIMARY KEY (`id_users`),
-  INDEX `fk_users_address1_idx` (`address_id_address` ASC) VISIBLE,
-  INDEX `fk_users_payment1_idx` (`payment_id_payment` ASC) VISIBLE,
-  CONSTRAINT `fk_users_address1`
-    FOREIGN KEY (`address_id_address`)
-    REFERENCES `database`.`address` (`id_address`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_users_payment1`
-    FOREIGN KEY (`payment_id_payment`)
-    REFERENCES `database`.`payment` (`id_payment`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id_users`))
 ENGINE = InnoDB;
 
 
